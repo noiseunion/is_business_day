@@ -5,7 +5,7 @@ module IsBusinessDay
       desc "Creates an initializer file that can be used to specify business day rules"
 
       def self.source_root
-        @_ibd_source_root ||= File.expand("../templates", __FILE__)
+        @_ibd_source_root ||= File.expand_path("../templates", __FILE__)
       end
 
       def create_initializer_file

@@ -1,5 +1,6 @@
 require 'time'
 
 class Time
-  include DigitalOpera::Calculations
+  include DigitalOpera::BusinessDayCalculations
+  include DigitalOpera::HolidayCalculations
 end
