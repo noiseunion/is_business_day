@@ -1,5 +1,6 @@
 # is_business_day
 [![Build Status](https://secure.travis-ci.org/noiseunion/is_business_day.png)](http://travis-ci.org/noiseunion/is_business_day)
+
 *is_business_day* extends the Date and Time objects in Ruby to include some simple helpers for determining if a specific date is a business day, or not.  It also includes helpers for getting the next or previous business days as well as testing for major holidays.
 
 ## Installation
