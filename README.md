@@ -1,8 +1,8 @@
-## is_business_day
+# is_business_day
 
 *is_business_day* extends the Date and Time objects in Ruby to include some simple helpers for determining if a specific date is a business day, or not.  It also includes helpers for getting the next or previous business days as well as testing for major holidays.
 
-# Installation
+## Installation
 
 Add it to your Gemfile
 
@@ -10,7 +10,7 @@ Add it to your Gemfile
 
 And then run `bundle install` to install it.
 
-# Usage
+## Usage
 
 After installing the gem you can now take advantage of the additional instance methods made available to the standard Ruby Date & Time objects.
 
@@ -18,7 +18,7 @@ After installing the gem you can now take advantage of the additional instance m
 
 ##### is_a_business_day?
 
-```rb
+```irb
 # Test that today is a valid business day
 Date.today.is_a_business_day? 
  => true
@@ -81,10 +81,10 @@ You can also test the following specific holidays:
 - labor_day_this_year
 - thanksgiving_day_this_year
 
-# Bug Reports
+## Bug Reports
 
 If you run into any issues feel free to create an issue on GitHub.  The more information you can provide about the issue and your environment the better.  We'll do the best we can to resolve issues quickly.
 
-# License
+## License
 
 MIT License.  Copyright &copy; 2012 Digital Opera, LLC.  [www.digitalopera.com](http://www.digitalopera.com/ "Digital Opera, LLC")
