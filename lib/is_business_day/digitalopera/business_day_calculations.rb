@@ -8,14 +8,14 @@ module DigitalOpera
     # this also accounts for holidays
     #
     def is_a_business_day?
-      (self.monday? || self.tuesday? || self.wednesday? || self.thursday? || self.friday?)
+      (self.monday? || self.tuesday? || self.wednesday? || self.thursday? || self.friday?) && self.is_not_a_holiday?
     end
 
     # Returns TRUE || FALSE if the date IS NOT a valid business day
     # this also accounts for holidays
     #
     def is_not_a_business_day?
-      self.saturday? || self.sunday?
+      self.saturday? || self.sunday? || self.is_a_holiday?
     end
 
     # Returns the first business day following the date.  This will account for

@@ -58,67 +58,81 @@ describe Time do
       test_time.thanksgiving_day_this_year.should eql(Time.parse("22/11/2012"))
     end
 
-    it "should be able to tell if it is memorial day" do
+    it "should be able to tell if it is memorial day and that it is not a valid business day" do
       bad_date  = Time.parse("06/06/2012")
       good_date = Time.parse("28/05/2012")
       bad_date.is_memorial_day?.should be_false
       bad_date.is_not_memorial_day?.should be_true
       good_date.is_memorial_day?.should be_true
       good_date.is_not_memorial_day?.should be_false
+      good_date.is_not_a_business_day?.should be_true
+      good_date.is_a_business_day?.should be_false
     end
 
-    it "should be able to tell if it is labor day" do
+    it "should be able to tell if it is labor day and that it is not a valid business day" do
       bad_date  = Time.parse("06/06/2012")
       good_date = Time.parse("03/09/2012")
       bad_date.is_labor_day?.should be_false
       bad_date.is_not_labor_day?.should be_true
       good_date.is_labor_day?.should be_true
       good_date.is_not_labor_day?.should be_false
+      good_date.is_not_a_business_day?.should be_true
+      good_date.is_a_business_day?.should be_false
     end
 
-    it "should be able to tell if it is thanksgiving day" do
+    it "should be able to tell if it is thanksgiving day and that it is not a valid business day" do
       bad_date  = Time.parse("06/06/2012")
       good_date = Time.parse("22/11/2012")
       bad_date.is_thanksgiving_day?.should be_false
       bad_date.is_not_thanksgiving_day?.should be_true
       good_date.is_thanksgiving_day?.should be_true
       good_date.is_not_thanksgiving_day?.should be_false
+      good_date.is_not_a_business_day?.should be_true
+      good_date.is_a_business_day?.should be_false
     end
 
-    it "should be able to tell if it is xmas day" do
+    it "should be able to tell if it is xmas day and that it is not a valid business day" do
       bad_date  = Time.parse("06/06/2012")
       good_date = Time.parse("25/12/2012")
       bad_date.is_christmas_day?.should be_false
       bad_date.is_not_christmas_day?.should be_true
       good_date.is_christmas_day?.should be_true
       good_date.is_not_christmas_day?.should be_false
+      good_date.is_not_a_business_day?.should be_true
+      good_date.is_a_business_day?.should be_false
     end
 
-    it "should be able to tell if it is xmas eve" do
+    it "should be able to tell if it is xmas eve and that it is not a valid business day" do
       bad_date  = Time.parse("06/06/2012")
       good_date = Time.parse("24/12/2012")
       bad_date.is_christmas_eve?.should be_false
       bad_date.is_not_christmas_eve?.should be_true
       good_date.is_christmas_eve?.should be_true
       good_date.is_not_christmas_eve?.should be_false
+      good_date.is_not_a_business_day?.should be_true
+      good_date.is_a_business_day?.should be_false
     end
 
-    it "should be able to tell if it is new year's day" do
+    it "should be able to tell if it is new year's day and that it is not a valid business day" do
       bad_date  = Time.parse("06/06/2012")
       good_date = Time.parse("01/01/2012")
       bad_date.is_new_years_day?.should be_false
       bad_date.is_not_new_years_day?.should be_true
       good_date.is_new_years_day?.should be_true
       good_date.is_not_new_years_day?.should be_false
+      good_date.is_not_a_business_day?.should be_true
+      good_date.is_a_business_day?.should be_false
     end
 
-    it "should be able to tell if it is the fourth of july" do
+    it "should be able to tell if it is the fourth of july and that it is not a valid business day" do
       bad_date  = Time.parse("06/06/2012")
       good_date = Time.parse("04/07/2012")
       bad_date.is_fourth_of_july?.should be_false
       bad_date.is_not_fourth_of_july?.should be_true
       good_date.is_fourth_of_july?.should be_true
       good_date.is_not_fourth_of_july?.should be_false
+      good_date.is_not_a_business_day?.should be_true
+      good_date.is_a_business_day?.should be_false
     end
 
     it "should be able to tell if it is a holiday or not" do
