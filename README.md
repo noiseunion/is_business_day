@@ -18,7 +18,7 @@ After installing the gem you can now take advantage of the additional instance m
 
 ##### is_a_business_day?
 
-```irb
+```rb
 # Test that today is a valid business day
 Date.today.is_a_business_day? 
  => true
@@ -28,7 +28,7 @@ Date.today.is_not_a_business_day?
  => false
 ```
 
-Valid business days are currently Monday thru Friday.  A few major holidays are also currently recognized as not being valid business days.
+Valid business days are currently Monday thru Friday.  In addition, the following major holidays are also recognized as not being valid business days:
 
 - New Year's Day
 - Memorial Day
@@ -38,7 +38,7 @@ Valid business days are currently Monday thru Friday.  A few major holidays are 
 - Christmas Eve
 - Christmas Day
 
-A future release will allow customization of these "holidays" using either a YAML or initializer file.
+NOTE: A future release will allow customization of these "holidays" using either a YAML or initializer file.
 
 ##### is_a_holiday?
 
@@ -53,8 +53,6 @@ Date.today.is_not_a_holiday?
 ```
 
 This method currently only checks for the previously mentioned holidays.
-
-##### Other boolean checks
 
 You can also test the following specific holidays:
 
@@ -73,13 +71,34 @@ You can also test the following specific holidays:
 - is_fourth_of_july?
 - is_not_fourth_of_july?
 
-*is_business_day* also introduces the following helper methods:
+### Additional Helpers
 
-- next_business_day
-- previous_business_day
-- memorial_day_this_year
-- labor_day_this_year
-- thanksgiving_day_this_year
+```rb
+# next_business_day
+# This will be the next valid business day accounting for weekends and/or holidays.
+Date.today.next_business_day
+ => #<Date ...> 
+	
+# previous_business_day
+# Will return the previous valid business day account for weekends and/or holidays.
+Date.today.previous_business_day
+ => #<Date ...>
+	
+# memorial_day_this_year
+# Will return the date memorial day falls on for the year identified by the date instance
+Date.today.memorial_day_this_year
+ => #<Date ...>
+	
+# labor_day_this_year
+# Will return the date labor day falls on for the year identified by the date instance
+Date.today.labor_day_this_year
+ => #<Date ...>
+	
+# thanksgiving_day_this_year
+# Will return the date thanksgiving falls on for the year identified by the date instance
+Date.today.thanksgiving_day_this_year
+ => #<Date ...>
+```
 
 ## Bug Reports
 
