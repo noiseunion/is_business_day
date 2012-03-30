@@ -54,48 +54,42 @@ Date.today.is_not_a_holiday?
 
 This method currently only checks for the previously mentioned holidays.
 
-You can also test the following specific holidays:
+You can also test the following specific holidays using the format `is_[holiday_name]_day?` and `is_not_[holiday_name]_day?` respectively.
 
-- is_labor_day?
-- is_not_labor_day?
-- is_memorial_day?
-- is_not_memorial_day?
-- is_thanksgiving_day?
-- is_not_thanksgiving_day?
-- is_christmas_eve?
-- is_not_christmas_eve?
-- is_christmas_day?
-- is_not_christmas_day?
-- is_new_years_day?
-- is_not_new_years_day?
-- is_fourth_of_july?
-- is_not_fourth_of_july?
+```rb
+# Test for labor day
+Date.today.is_labor_day?
+ => false
+
+Date.today.is_not_labor_day?
+ => true
+```
 
 ### Additional Helpers
 
 ```rb
 # next_business_day
-# This will be the next valid business day accounting for weekends and/or holidays.
+# Returns the next valid business day accounting for weekends and/or holidays.
 Date.today.next_business_day
  => #<Date ...> 
 	
 # previous_business_day
-# Will return the previous valid business day account for weekends and/or holidays.
+# Returns the previous valid business day account for weekends and/or holidays.
 Date.today.previous_business_day
  => #<Date ...>
 	
 # memorial_day_this_year
-# Will return the date memorial day falls on for the year identified by the date instance
+# Returns the date memorial day falls on for the year identified by the date instance
 Date.today.memorial_day_this_year
  => #<Date ...>
 	
 # labor_day_this_year
-# Will return the date labor day falls on for the year identified by the date instance
+# Returns the date labor day falls on for the year identified by the date instance
 Date.today.labor_day_this_year
  => #<Date ...>
 	
 # thanksgiving_day_this_year
-# Will return the date thanksgiving falls on for the year identified by the date instance
+# Returns the date thanksgiving falls on for the year identified by the date instance
 Date.today.thanksgiving_day_this_year
  => #<Date ...>
 ```
