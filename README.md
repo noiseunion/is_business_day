@@ -39,8 +39,6 @@ Valid business days are currently Monday thru Friday.  In addition, the followin
 - Christmas Eve
 - Christmas Day
 
-NOTE: A future release will allow customization of these "holidays" using either a YAML or initializer file.
-
 ##### is_a_holiday?
 
 ```rb
@@ -94,6 +92,10 @@ Date.today.labor_day_this_year
 Date.today.thanksgiving_day_this_year
  => #<Date ...>
 ```
+
+## TODO
+
+A future release will allow customization of these "holidays" using either a YAML or initializer file.
 
 ## Bug Reports
 
