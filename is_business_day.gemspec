@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = IsBusinessDay::VERSION
   s.authors     = ["JD Hendrickson"]
   s.email       = ["jd@digitalopera.com"]
-  s.homepage    = ""
+  s.homepage    = "http://www.digitalopera.com/"
   s.summary     = %q{Simple business day detection}
   s.description = %q{Adds some methods to the Ruby Date object for testing whether or not a specific date falls on a valid business day or not}
 
