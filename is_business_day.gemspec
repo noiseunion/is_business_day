@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.version     = IsBusinessDay::VERSION
   s.authors     = ["JD Hendrickson"]
   s.email       = ["jd@digitalopera.com"]
+  s.license     = 'MIT'
   s.homepage    = "http://www.digitalopera.com/"
   s.summary     = %q{Simple business day detection}
   s.description = %q{Adds some methods to the Ruby Date object for testing whether or not a specific date falls on a valid business day or not}
@@ -22,5 +23,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec", "~> 2.6"
   s.add_development_dependency "guard-rspec", "~> 0.0"
   s.add_development_dependency "rake", "~> 0.9.2"
-  s.add_dependency "activesupport", "~>3.0"
+
+  s.add_dependency "activesupport", ">= 3.0"
 end
