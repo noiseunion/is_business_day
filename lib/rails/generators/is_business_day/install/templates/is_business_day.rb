@@ -1,1 +1,0 @@
-# is_business_day initializer

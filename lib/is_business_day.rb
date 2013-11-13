@@ -1,5 +1,20 @@
+require "active_support"
 require "is_business_day/version"
-require "is_business_day/digitalopera/business_day_calculations"
-require "is_business_day/digitalopera/holiday_calculations"
-require "is_business_day/active_support/core_ext/date/calculations"
-require "is_business_day/active_support/core_ext/time/calculations"
+require "is_business_day/holidays"
+require "is_business_day/business_days"
+require "is_business_day/helpers"
+
+module IsBusinessDay
+  extend ActiveSupport::Concern
+  include Holidays
+  include BusinessDays
+  include Helpers
+end
+
+class Time
+  include IsBusinessDay
+end
+
+class Date
+  include IsBusinessDay
+end
