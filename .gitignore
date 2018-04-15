@@ -5,3 +5,4 @@ pkg/*
 coverage
 tmp
 .DS_Store
+/.byebug_history
