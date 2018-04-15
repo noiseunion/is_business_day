@@ -1,14 +1,24 @@
-require 'spork'
+require 'simplecov'
+SimpleCov.start do
+  add_filter '/spec/'
+end
+
 require 'active_support/all'
-require 'american_date'
+require 'rspec'
+require 'is_business_day'
+require 'byebug'
 
-Spork.prefork do
-  require 'rspec'
-  require 'rspec/autorun'
-  require 'is_business_day'
+# We will set a default timezone for specs
+Time.zone = 'Mountain Time (US & Canada)'
 
-  # Configure RSpec ---------------------------------------
-  RSpec.configure do |config|
-    config.order          = "random"
-  end
+# Load support files
+puts 'loading files...maybe'
+
+# Dir[File.join('support/**/*.rb')].each do |f|
+Dir.glob('spec/support/**/*.rb').each do |f|
+  require "./#{f}"
+end
+
+RSpec.configure do |config|
+  config.order = 'random'
 end

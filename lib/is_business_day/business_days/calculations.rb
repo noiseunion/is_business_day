@@ -3,26 +3,32 @@ module IsBusinessDay
     module Calculations
       extend ActiveSupport::Concern
 
-      included do
-        def next_business_day
-          next_business_day = self
+      # Return the next business day from self
+      # @return [Time] time with time zone
+      ##
+      def next_business_day
+        nbd = clone
 
-          begin
-            next_business_day = (next_business_day.to_time + 1.day).to_date
-          end while next_business_day.is_not_a_business_day?
-
-          return_business_day next_business_day
+        loop do
+          nbd += 1.day
+          break if nbd.business_day?
         end
 
-        def previous_business_day
-          previous_business_day = self
+        nbd
+      end
 
-          begin
-            previous_business_day = (previous_business_day.to_time - 1.day).to_date
-          end while previous_business_day.is_not_a_business_day?
+      # Return the previous business day from self
+      # @return [Time] time with time zone
+      ##
+      def previous_business_day
+        pbd = clone
 
-          return_business_day previous_business_day
+        loop do
+          pbd -= 1.day
+          break if pbd.business_day?
         end
+
+        pbd
       end
     end
   end

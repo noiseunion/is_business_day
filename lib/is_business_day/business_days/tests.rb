@@ -3,14 +3,18 @@ module IsBusinessDay
     module Tests
       extend ActiveSupport::Concern
 
-      included do
-        def is_a_business_day?
-          (self.monday? || self.tuesday? || self.wednesday? || self.thursday? || self.friday?) && self.is_not_a_holiday?
-        end
+      # Return true if the date/time is a business day
+      # @return [Boolean]
+      ##
+      def business_day?
+        (monday? || tuesday? || wednesday? || thursday? || friday?) && not_holiday?
+      end
 
-        def is_not_a_business_day?
-          !is_a_business_day?
-        end
+      # Return true if the date/time is NOT a business day
+      # @return [Boolean]
+      ##
+      def not_business_day?
+        !business_day?
       end
     end
   end

@@ -1,0 +1,14 @@
+-
+  name: christmas_day
+  month: 12
+  day: 25
+
+-
+  name: christmas_eve
+  month: 12
+  day: 24
+
+-
+  name: thanksgiving
+  rule: :last_thursday
+  month: 11
