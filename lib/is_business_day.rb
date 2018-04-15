@@ -8,13 +8,19 @@ require 'is_business_day/business_days'
 
 module IsBusinessDay
   extend ActiveSupport::Concern
-  include Holidays
+  include GemConfig::Base
   include HolidayRules
   include BusinessDays
-  include GemConfig::Base
+  include Holidays
 
   with_configuration do
     has :holiday_config
+  end
+end
+
+module ActiveSupport
+  class TimeWithZone
+    include IsBusinessDay
   end
 end
 

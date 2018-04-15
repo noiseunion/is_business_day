@@ -12,9 +12,6 @@ require 'byebug'
 Time.zone = 'Mountain Time (US & Canada)'
 
 # Load support files
-puts 'loading files...maybe'
-
-# Dir[File.join('support/**/*.rb')].each do |f|
 Dir.glob('spec/support/**/*.rb').each do |f|
   require "./#{f}"
 end

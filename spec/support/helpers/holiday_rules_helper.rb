@@ -7,4 +7,5 @@ def load_rules
 
   Time.load_holidays
   Date.load_holidays
+  ActiveSupport::TimeWithZone.load_holidays
 end

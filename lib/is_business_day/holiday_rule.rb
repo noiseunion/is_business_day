@@ -1,10 +1,4 @@
 # lib/is_business_day/holiday_rule.rb
-# on supports: :first, :second, :third, :fourth, :fifth, :last, :every
-# :every_thursday
-# :first_thursday
-# :last_thursday
-#
-
 module IsBusinessDay
   class HolidayRule
     def initialize(name, options = {})
@@ -15,17 +9,32 @@ module IsBusinessDay
     end
     attr_reader :name, :month, :day
 
+    # Test a date to determine if it matches the rule or not.
+    # @param [Date, Time] date_or_time
+    # @return [Boolean]
+    ##
     def test?(date_or_time)
       if fixed?
-        date_or_time.month == month && date_or_time.mday == day
+        resolve(date_or_time) == date_or_time
       elsif moving?
-        position, day_name = parse_rule
-        days = fetch_specific_days(day_name, date_or_time)
-        days.send(position) == date_or_time
+        resolve(date_or_time) == date_or_time
       else
         false
       end
     end
+
+    def resolve(date_or_time)
+      if fixed?
+        Time.zone.parse("#{day}/#{month}/#{date_or_time.year}")
+      elsif moving?
+        start_of_month = Time.zone.parse("01/#{month}/#{date_or_time.year}")
+        position, day_name = parse_rule
+        days = fetch_specific_days(day_name, start_of_month)
+        days.send(position)
+      end
+    end
+
+    private # ---------------------------------------------
 
     # match exact day of the month (christmas)
     # match a specific day based on position (thanksgiving)
@@ -36,8 +45,6 @@ module IsBusinessDay
     def moving?
       @rule.present?
     end
-
-    private # ---------------------------------------------
 
     def parse_rule
       (@rule.to_s || '').split('_', 2).map(&:to_sym)
